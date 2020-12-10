@@ -25,8 +25,9 @@ import json
 
 import megaio as m
 
+import asyncio  
 
-def main():
+async def main():
 
     #################################  Turn power on and set control type  ################################# 
 
@@ -34,6 +35,8 @@ def main():
 
     g.gv.TC_CC.write_command(Command_Dict.Command_Dict['set_ctl_type'], 1)
 
+    deltaT = 2
+    
     try:
 
         while True:
@@ -50,9 +53,9 @@ def main():
 
             #print('DPG_set', g.gv.dl.getParm('DPG_set'))
 
-	        #print('RH_set', g.gv.dl.getParm('RH_set'))
+            #print('RH_set', g.gv.dl.getParm('RH_set'))
 
-	        #print('pH2O_set', g.gv.dl.getParm('pH2O_set'))
+            #print('pH2O_set', g.gv.dl.getParm('pH2O_set'))
 
             user_input = g.gv.ser_PC.readline().decode()
 

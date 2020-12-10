@@ -16,15 +16,9 @@ from math import exp, log
 class Command_Proc():
     """docstring for Command_Proc"""
 
-    def __init__(self, dl, string, time_stamp):
+    def __init__(self, dl):
 
         self.dl = dl
- 
-        self.string = string
-
-        self.strings =  self.string.split('\n')[0].split(' ')
-
-        self.time_stamp = time_stamp
 
         self.switch = ['off', 'on']
 
@@ -34,12 +28,18 @@ class Command_Proc():
         self.errSum = 0.0   
         self.deltaT = 3.0 #machine cycle is roughly 3 seconds 
 
-    def Do_it(self):
+    def Do_it(self, time_stamp, string):
 
         ############# Function that executes the command #############s
     
         #print(self.strings)
-        
+
+        self.time_stamp = time_stamp
+
+        self.string = string
+
+        self.strings =  self.string.split('\n')[0].split(' ')
+
         if self.strings in ([u''], [u'\n'], [u'\r']): # User enters a new line or does not enter anything - no action requied, return False
         
             return False
@@ -280,11 +280,11 @@ class Command_Proc():
 
     def Set_DPG_ctrl(self, DPG_ctrl):
 
-	print(type(DPG_ctrl))
+        print(type(DPG_ctrl))
 
         Output_string = g.gv.TC_DPG.write_command(Command_Dict.Command_Dict['DPG_set_write'], int(DPG_ctrl)*100)
-	
-	print('Check point')
+    
+        print('Check point')
 
         return(Output_string)
 
@@ -344,7 +344,7 @@ class Command_Proc():
             
         #print('DPG_ctrl', DPG_ctrl)
 
-	print('pH2O', self.dl.getParm('pH2O')[0])
+        print('pH2O', self.dl.getParm('pH2O')[0])
 
         print('DPT', self.dewPointTemp(self.dl.getParm('pH2O')[0]*self.dl.getParm('CellP')[0]))
 
@@ -355,8 +355,8 @@ class Command_Proc():
         #print('Error sum', self.errSum)
 
         self.DPG_ctrl = (self.dl.getParm('pH2O_P')[0]*self.err + self.dl.getParm('pH2O_D')[0]*self.errDot + self.dl.getParm('pH2O_I')[0]*self.errSum)
-	
-	print(self.DPG_ctrl)
+    
+        print(self.DPG_ctrl)
 
         # Now, we need the limiter
         limit = min(self.dl.getParm('SC_T')[0], self.dl.getParm('CC_T')[0])
@@ -372,7 +372,3 @@ class Command_Proc():
         w = log(ph2o / 610.78)
         return w * 238.3 / (17.294 - w)
 
-
-'''
-
-'''
