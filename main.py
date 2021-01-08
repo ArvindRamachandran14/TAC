@@ -23,15 +23,10 @@ import json
 
 import megaio as m
 
-<<<<<<< HEAD
 import asyncio  
 
-async def main():
-=======
-import asyncio
 
 class TAC():
->>>>>>> 86924a4c99d766db76d4b87263449191ae7ad0bc
 
     def __init__(self):
 
@@ -39,13 +34,10 @@ class TAC():
 
         self.bdone = False
 
-<<<<<<< HEAD
-    deltaT = 2
-    
-    try:
-=======
+    	deltaT = 2
+   
+
     async def Read_Instruments():
->>>>>>> 86924a4c99d766db76d4b87263449191ae7ad0bc
 
         try:
 
@@ -57,15 +49,14 @@ class TAC():
                     
                     time_stamp = dt.datetime.fromtimestamp(current_time).strftime('%Y-%m-%d %H:%M:%S.%f') # create time stamp in specific format        
 
-<<<<<<< HEAD
-            #print('RH_set', g.gv.dl.getParm('RH_set'))
 
-            #print('pH2O_set', g.gv.dl.getParm('pH2O_set'))
-=======
+            	    #print('RH_set', g.gv.dl.getParm('RH_set'))
+
+                    #print('pH2O_set', g.gv.dl.getParm('pH2O_set'))
+
                     IRGA_list = g.gv.irga.read_IRGA() # Read IRGA 
 
                     # Updated the registers with the most recently read system variables in 
->>>>>>> 86924a4c99d766db76d4b87263449191ae7ad0bc
 
                     g.gv.dl.setParm('pCO2', IRGA_list[0], time_stamp) 
 
