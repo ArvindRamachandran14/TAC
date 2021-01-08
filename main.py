@@ -33,8 +33,6 @@ class TAC():
         self.sem = asyncio.Semaphore(1)  
 
         self.bdone = False
-
-    	deltaT = 2
    
 
     async def Read_Instruments():
