@@ -34,7 +34,7 @@ class IRGA():
         
         self.ser.write('<LI840> <CFG> <OUTRATE> 0 </OUTRATE> </CFG> </LI840>'.encode()) #Set the OUTRATE to 0
         
-	self.xmlstring = self.ser.readline().decode() 
+        self.xmlstring = self.ser.readline().decode() 
 	
         self.ser.write('<LI840><DATA>?</DATA></LI840>'.encode())
 
