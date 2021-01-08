@@ -34,9 +34,6 @@ class TAC():
 
         self.bdone = False
 
-    	deltaT = 2
-   
-
     async def Read_Instruments():
 
         try:
@@ -108,11 +105,11 @@ class TAC():
 
                      ################### Check for normal operation of TA ################### 
 
-                 if CellT > 50.0 and DPT < 45.0 and DPT > CC_T and CC_T > SC_T and SC_T > DPG_T:
+                if CellT > 50.0 and DPT < 45.0 and DPT > CC_T and CC_T > SC_T and SC_T > DPG_T:
                     
-                     pass
+                    pass
                     
-                 else:
+                else:
 
                     g.gv.dl.setParm('Status', 1, time_stamp)
 
