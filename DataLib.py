@@ -151,8 +151,7 @@ class DataLib():
 
             string += ','
 
-	print("output is", string)
-
+        print("output is", string)
         return(string)
 
 
@@ -169,8 +168,8 @@ class DataLib():
             string += str(self.parmDict[key].value) 
 
             string += ','
-	
-	#print(string)
+    
+    #print(string)
         return(string)
 
     def setParm(self, key, value, time_stamp):

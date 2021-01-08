@@ -9,9 +9,13 @@ import IRGA
 
 import serial
 
+import asyncio #timing to work right asychronous call - go and read the data and the meanwhile you can do other things
+
 class gv():
 
     #################################   Serial port definiton   #################################     
+
+    #sem = asyncio.Semaphore(1)
 
     ser_TC_SC = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
 
