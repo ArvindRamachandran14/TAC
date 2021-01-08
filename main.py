@@ -179,7 +179,7 @@ class TAC():
 
             self.Terminate() 
 
-    self.Terminate(self):
+    def Terminate(self):
 
         g.gv.TC_SC.write_command(Command_Dict.Command_Dict['SC_power_write'], 0) #Turn power off
 
